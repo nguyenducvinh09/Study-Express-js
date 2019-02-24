@@ -1,9 +1,23 @@
 const express = require('express');
 const app = express();
+
 const port = 3000;
 
+app.set('view engine', 'pug');
+app.set('views', './views');
+
 app.get('/', (req,res) => 
-	res.send('<h1> Hello Express js </h1>')
+	res.render('index', {
+		name: "with Coders.tokyo"
+	})
+);
+app.get('/users', (req,res) => 
+	res.render('./users/index', {
+		users: [
+			{id: 1, name: "Vinh"},
+			{id: 2, name: 'Trang'}
+		]
+	})
 );
 
 app.get('/users', (req,res) => 
