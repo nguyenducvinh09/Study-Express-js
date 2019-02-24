@@ -1,0 +1,22 @@
+{
+  "name": "express-js",
+  "version": "1.0.0",
+  "description": "NODEJS WEB SERVER USING EXPRESS 2018",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nguyenducvinh09/Study-Express-js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nguyenducvinh09/Study-Express-js/issues"
+  },
+  "homepage": "https://github.com/nguyenducvinh09/Study-Express-js#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
