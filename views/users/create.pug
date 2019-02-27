@@ -1,4 +1,6 @@
-h2 Creat user:
-form(action='/users/create', method='POST')
-	input(type= 'text', name='name')
-	button Submit
+extends ../layouts/common
+block content
+	h2 Creat user:
+	form(action='/users/create', method='POST')
+		input(type= 'text', name='name')
+		button Submit
