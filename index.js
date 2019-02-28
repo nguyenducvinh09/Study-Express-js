@@ -19,6 +19,9 @@ app.get('/', (req,res) =>
 		name: "with Coders.tokyo"
 	})
 );
+app.get('/about', (req, res) =>
+	res.render('about/about')
+);
 
 app.use('/users', userRoutes);
 app.listen(port,() => console.log('Example app listening on port ${port}'));

@@ -1,13 +1,21 @@
 extends ../layouts/common
 block content	
 	h2 Users List :
-	a(href='/users/create', class="btn btn-primary mb-2") New
-	form(action='/users/search', method='Get', class='d-flex')
-		input(type= 'text', name= 'q', value= paramValue, class="form-control",placeholder="Enter Name")
-		button(class="btn btn-outline-info ml-2") Search
-	ul 
-		each user in users
-			li
-				span= user.name
-					span &nbsp;
-					a(href='/users/' + user.id) Views
+	.d-flex.align-items-center
+		a.btn.btn-primary.mr-auto(href='/users/create') New
+		form(action='/users/search', method='Get', class='d-flex')
+			input(type= 'text', name= 'q', value= paramValue, class="form-control",placeholder="Enter Name")
+			button(class="btn btn-outline-info ml-2") Search
+	table.table
+		thead
+			tr
+				th Name
+				th Phone
+				th Actions
+		tbody
+			each user in users
+				tr
+					td=user.name
+					td=user.phone
+					td
+						a(href='/users/' + user.id) Views
