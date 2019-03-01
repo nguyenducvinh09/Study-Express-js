@@ -1,32 +1,19 @@
 {
   "users": [
     {
-      "name": "vinh",
-      "id": "dphjPJ5ZL"
+      "name": "Vinh",
+      "phone": "1234",
+      "id": "n5evPcRw8"
     },
     {
-      "name": "Trang",
-      "id": "UOxF1-Xlh"
+      "name": "truong",
+      "phone": "111111",
+      "id": "O_TngHm2n"
     },
     {
-      "name": "dog",
-      "id": "5EUTHepQR"
-    },
-    {
-      "name": "1111",
-      "id": "i-GSvrxZO"
-    },
-    {
-      "name": "controllers",
-      "id": "Xgr7CCOd6"
-    },
-    {
-      "name": "god",
-      "id": "ONamkCiUE"
-    },
-    {
-      "name": "",
-      "id": "bKkXpyrLT"
+      "name": "Cho con",
+      "phone": "888888888",
+      "id": "YSl5Hd5ZK"
     }
   ]
 }
