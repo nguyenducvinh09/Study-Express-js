@@ -18,12 +18,12 @@ app.use(cookieParser());
 
 app.use(express.static('public'));
 
-app.get('/', (req,res) => 
+app.get('/', authMiddleware.requireAuth, (req,res) => 
 	res.render('index', {
 		name: "with Coders.tokyo"
 	})
 );
-app.get('/about', (req, res) =>
+app.get('/about', authMiddleware.requireAuth,  (req, res) =>
 	res.render('about/about')
 );
 
