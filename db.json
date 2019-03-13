@@ -3,7 +3,9 @@
     {
       "name": "Vinh",
       "phone": "1234",
-      "id": "n5evPcRw8"
+      "id": "n5evPcRw8",
+      "email": "info@coders.tokyo",
+      "password": "123456"
     },
     {
       "name": "truong",
@@ -14,6 +16,11 @@
       "name": "Cho con",
       "phone": "888888888",
       "id": "YSl5Hd5ZK"
+    },
+    {
+      "name": "mimi",
+      "phone": "0000",
+      "id": "rWJfa7l3a"
     }
   ]
 }
