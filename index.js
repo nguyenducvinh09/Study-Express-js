@@ -14,17 +14,21 @@ app.set('views', './views');
 
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
-app.use(cookieParser());
+app.use(cookieParser('vlskjrw829jlskjflsf'));
 
 app.use(express.static('public'));
 
-app.get('/', authMiddleware.requireAuth, (req,res) => 
+app.get('/', authMiddleware.requireAuth, (req,res) => {
+	// console.log(res.locals)
 	res.render('index', {
-		name: "with Coders.tokyo"
+		names: "with Coders.tokyo",
 	})
+	}
 );
-app.get('/about', authMiddleware.requireAuth,  (req, res) =>
+app.get('/about', authMiddleware.requireAuth,  (req, res) => {
+	// console.log(res.locals);
 	res.render('about/about')
+}
 );
 
 app.use('/users',authMiddleware.requireAuth, userRoutes);
