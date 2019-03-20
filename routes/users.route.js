@@ -7,11 +7,6 @@ const validate = require('../validate/user.validate');
 var router = express.Router();
 
 router.get('/', controller.index);
-router.get('/cookie', (req, res , next) => {
-	res.cookie('set-id',2343);
-	res.send(req.params);
-	console.log(req.params);
-})
 
 router.get('/search', controller.search);
 
