@@ -6,9 +6,13 @@ const cookieParser = require('cookie-parser')
 
 const userRoutes = require('./routes/users.route');
 const authRoutes = require('./routes/auth.route');
-const productRoutes = require('./routes/products.route')
+const productRoutes = require('./routes/products.route');
+const dogRoutes = require('./routes/dog.route')
+
 
 const authMiddleware =require('./middlewares/auth.middleware');
+const sessionIdMiddleware =require('./middlewares/session.middleware');
+
 
 const port = 3000;
 
@@ -18,6 +22,7 @@ app.set('views', './views');
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(cookieParser(process.env.SESSION_SECRET));
+app.use(sessionIdMiddleware);
 
 app.use(express.static('public'));
 
@@ -37,4 +42,5 @@ app.get('/about', authMiddleware.requireAuth,  (req, res) => {
 app.use('/users',authMiddleware.requireAuth, userRoutes);
 app.use('/auth', authRoutes);
 app.use('/products', productRoutes);
+app.use('/dog', dogRoutes);
 app.listen(port,() => console.log('Example app listening on port ${port}'));
