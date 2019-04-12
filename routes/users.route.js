@@ -16,6 +16,8 @@ router.get('/create', controller.create);
 
 router.get('/:id', controller.getId);
 
+router.get('/delete/:id', controller.removeId);
+
 
 router.post('/create',
  upload.single('avatar'),

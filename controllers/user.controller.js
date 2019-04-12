@@ -29,9 +29,21 @@ module.exports.getId = (req, res) => {
 	})
 };
 
+module.exports.removeId = (req, res) => {
+	let id = req.params.id;
+	db.get('users').remove({ id: id }).write();
+	//error image  false request url
+	// res.render('users/index', {
+	// 	users : db.get('users').value()
+	// })
+	res.redirect('/users')
+};
+
 module.exports.createPost =  (req, res) =>{
 	req.body.id = shortid.generate();
-	req.body.avatar = req.file.path.split('\\').slice(1).join('/');
+	if(req.body.avatar) {
+		req.body.avatar = req.file.path.split('\\').slice(1).join('/');
+	}
 	db.get('users').push(req.body).write();
 	res.redirect('/users')
 };

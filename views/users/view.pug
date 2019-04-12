@@ -8,5 +8,6 @@ block content
 		b Phone: 
 		span=user.phone
 		br
-		b Avatar:
-		img(src=`../${user.avatar}`, width = '100%')
+		if user.avatar
+			b Avatar:
+			img(src=`../${user.avatar}`, width = '100%')
