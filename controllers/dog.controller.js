@@ -28,7 +28,6 @@ module.exports.addToDog = (req, res) => {
       .value();
 
     const a= Object.values(countDog).reduce((a,b) => a+b);
-    console.log('vinhsdya', a);
-    
+    // console.log('Total dogs added: ', a);
     res.redirect('/products/?page=1');
 }

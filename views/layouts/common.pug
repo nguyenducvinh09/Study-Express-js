@@ -16,8 +16,11 @@ html
 								a.nav-link(href='/users') Users
 							li.nav-item
 								a.nav-link(href='/products/?page=1') Products
+							if a
+								li.nav-item
+								a.nav-link(href='/dog') Dog(#{a})
 							li.nav-item
-								a.nav-link(href='/dog') Dog
+								a.nav-link(href='/dog') Dog 
 							li.nav-item
 								a.nav-link(href='/about') About
 					if user
