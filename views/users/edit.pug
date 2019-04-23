@@ -1,0 +1,24 @@
+extends ../layouts/common
+block content
+    h2 Edit user:
+    if errors
+        each error in errors
+            .alert.alert-danger= error
+    form(action='/users/create', method='POST', enctype="multipart/form-data")
+        .form-group
+            label(for="name") Name :
+            input#name.form-control(type= 'text', name='name', placeholder='Enter name', value= user.name)
+        .form-group
+            label(for='phone') Phone :
+            input#phone.form-control(type= 'number', name='phone', placeholder='Enter phone',  value= user.phone : '')
+        .form-group
+            label(for='avatar') Avatar :
+            input#avatar.form-control-file(type= 'file', name='avatar')
+        if user.avatar
+            div
+                p
+                    b Avatar:
+                img.rounded(src=`../../${user.avatar}`, alt='...', width = '30%')
+            //- b Avatar:
+            //- img(src=`../../${user.avatar}`, width = '50%')
+        button.btn.btn-primary Submit

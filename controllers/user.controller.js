@@ -24,7 +24,7 @@ module.exports.create = (req, res) => {
 module.exports.editId = (req, res) => {
 	let id = req.params.id;
 	let user =db.get('users').find({id: id}).value();
-	res.render('users/create', {
+	res.render('users/edit', {
 		user : user
 	})
 };

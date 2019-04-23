@@ -18,7 +18,7 @@ module.exports = (req, res, next) => {
         .find({ id: req.signedCookies.sessionId })
         .get('dog')
         .value();
-        console.log('countDog', countDog);
+        // console.log('countDog', countDog);
         if(countDog) {
             a = Object.values(countDog).reduce((a, b) => a + b);
             res.locals.a = a;

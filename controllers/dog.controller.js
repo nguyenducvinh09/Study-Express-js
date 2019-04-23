@@ -21,13 +21,13 @@ module.exports.addToDog = (req, res) => {
       .set('dog.' +productId, count + 1)
       .write();
 
-    let countDog = db
-      .get('sessions')
-      .find({ id: sessionId})
-      .get('dog')
-      .value();
+    // let countDog = db
+    //   .get('sessions')
+    //   .find({ id: sessionId})
+    //   .get('dog')
+    //   .value();
 
-    const a= Object.values(countDog).reduce((a,b) => a+b);
+    // const a= Object.values(countDog).reduce((a,b) => a+b);
     // console.log('Total dogs added: ', a);
     res.redirect('/products/?page=1');
 }
