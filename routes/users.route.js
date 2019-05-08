@@ -1,7 +1,7 @@
 var express = require('express')
 var multer  = require('multer')
 
-var upload = multer({ dest: './public/uploads/' })
+var upload = multer({ dest: './public/uploads/' });
 const controller = require('../controllers/user.controller');
 const validate = require('../validate/user.validate');
 // const authMiddleware = require('../middlewares/auth.Middleware');
@@ -18,11 +18,13 @@ router.get('/:id', controller.getId);
 
 router.get('/delete/:id', controller.removeId);
 
-router.get('/edit/:id', controller.editId);
+router.get('/edit/:id',upload.single('avatar'), controller.editId);
+
+router.post('/update',upload.single('avatar'), controller.updateId);
 
 router.post('/create',
- upload.single('avatar'),
-  validate.postCreate,
+   upload.single('avatar'),
+   validate.postCreate,
    controller.createPost);
 
 module.exports = router;

@@ -49,10 +49,17 @@ module.exports.removeId = (req, res) => {
 
 module.exports.createPost =  (req, res) =>{
 	req.body.id = shortid.generate();
-	if(req.body.avatar) {
-		req.body.avatar = req.file.path.split('\\').slice(1).join('/');
-	}
+	req.body.avatar = req.file.path.split('/').slice(1).join('/');
 	db.get('users').push(req.body).write();
 	res.redirect('/users')
 };
 
+module.exports.updateId =  (req, res) =>{
+	let user =db.get('users').find({id: req.body.id}).value();
+	user.name = req.body.name;
+	user.phone = req.body.phone;
+	if(req.file) {
+		user.avatar =req.file.path.split('/').slice(1).join('/');
+	}
+	res.redirect('/users')
+};
