@@ -14,6 +14,7 @@ const transferRoutes = require('./routes/transfer.route')
 
 const authMiddleware =require('./middlewares/auth.middleware');
 const sessionIdMiddleware =require('./middlewares/session.middleware');
+const csrfProtection = csurf({ cookie: true })
 
 
 const port = 3000;
@@ -25,7 +26,7 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.use(cookieParser(process.env.SESSION_SECRET));
 app.use(sessionIdMiddleware);
-app.use(csurf({ cookie: true }));
+// app.use(csurf({ cookie: true }));
 
 app.use(express.static('public'));
 
@@ -46,5 +47,5 @@ app.use('/users',authMiddleware.requireAuth, userRoutes);
 app.use('/auth', authRoutes);
 app.use('/products', productRoutes);
 app.use('/dog', dogRoutes);
-app.use('/transfer', authMiddleware.requireAuth, transferRoutes);
+app.use('/transfer',csrfProtection, authMiddleware.requireAuth, transferRoutes);
 app.listen(port,() => console.log('Example app listening on port ${port}'));
